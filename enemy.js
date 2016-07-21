@@ -3,8 +3,14 @@ var enemy ={
   y: 100,
   velX: 0,
   velY: 0,
+  sprite: document.getElementById("enemy"),
   update: function(){
-    if 
+    var a = (this.x - player.x)*(this.x - player.x);
+    var b = (this.y - player.y)*(this.y - player.y);
+    var dist = Math.sqrt(a+b);
+    if (dist < 10){
+      player.dead = true;
+    }
     if(this.x < player.x){
       this.x = this.x +3;
   }
@@ -17,12 +23,12 @@ var enemy ={
     if(this.y > player.y){
       this.y = this.y -3;
     }
-    
-  
+     
 },
     render: function(){
-    ctx.fillStyle= "#FFFFFF";
-    ctx.fillRect(this.x, this.y, 50, 50);
+     ctx.drawImage(this.sprite, this.x, this.y, 30, 30);
+    //ctx.fillStyle= "#FFFFFF";
+    //ctx.fillRect(this.x, this.y, 50, 50);
   
 }
 };
