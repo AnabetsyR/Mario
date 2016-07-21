@@ -8,6 +8,8 @@ c.height = window.innerHeight*0.9;
 function animate(){
   ctx.fillStyle = "#000000";
   ctx.drawImage(background, 0, 0, c.width, c.height);
+  enemy.update();
+  enemy.render();
   player.update();
   player.render();
   window.requestAnimationFrame(animate);
